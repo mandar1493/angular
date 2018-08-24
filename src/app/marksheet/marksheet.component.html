@@ -1,0 +1,16 @@
+<h1>Student Details</h1>
+  <p>Name:<input [(ngModel)] = "name" type="string" ></p>
+  <p>English: <input [(ngModel)] = "eng" type="number" placeholder="Enter Subject 1 Marks" min="0" max="100" required="required" name="eng"></p>
+  <p>Maths: <input [(ngModel)]= "math" type="number" placeholder="Enter Subject 2 Marks" min="0" max="100" required="required" name="math"></p>
+  <p>Science: <input [(ngModel)]= "sci" type="number" name="sci" placeholder="Enter Subject 3 Marks" min="0" max="100" required="required"></p>
+  <p>History: <input [(ngModel)] = "his" type="number" name="his"placeholder="Enter Subject 4 Marks" min="0" max="100" required="required"></p>
+  <div><input type="button" value="Get Result" (click) = "getReport()"></div>
+
+  <h2>Report Card</h2>
+<br>
+
+ Total marks: {{total}} <br>
+ Parcentage :{{avg}} <br>
+ Result: {{result}}
+<br>
+

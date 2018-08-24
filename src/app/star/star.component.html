@@ -1,0 +1,7 @@
+<p>
+  Parent Component
+</p>
+<p>Ratings:<b> {{recievedValue}}/5</b></p><br/>
+<input #num type="number" placeholder="Enter ratings">
+<button (click) = "rate(num.value)">Change </button>
+<app-starchild [selectedValue] = 'starList' (ParametersChanged)="RecievedParameters($event)"></app-starchild>

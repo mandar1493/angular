@@ -1,0 +1,23 @@
+<h1>Calculator</h1>
+
+<input [(ngModel)]='num1' type="number" name ="num1" placecholder= "enter number 1">
+<input [(ngModel)]='num2' type="number" name ="num2" placecholder= "enter number 2">
+<br>
+<br>
+<button (click)= 'add()'>
+  add +
+</button>
+<button (click)= 'sub()'>
+  sub -
+</button>
+<button (click)= 'mult()'>
+  multi *
+</button>
+<button (click)= 'div()'>
+  div /
+</button>
+<br>
+<br>
+<h2>
+  {{result}}
+</h2>

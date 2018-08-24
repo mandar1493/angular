@@ -1,0 +1,7 @@
+<p>
+  Parent Component
+</p>
+<p>Status:<b> {{recievedValue}}</b></p><br/>
+
+<button (click) = "toggle()">Change </button>
+<app-like-child [selectedValue] = 'islike' (ParametersChanged)="RecievedParameters($event)"></app-like-child>

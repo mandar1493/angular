@@ -1,0 +1,72 @@
+
+<h1>ORDER DETAILS</h1>
+<hr>
+<form  class="form-horizontal" [formGroup]="form" (ngSubmit)="signUp()">
+    <div class="form-group">
+        <label class="col-md-2 control-label" for="orderNo">Order No</label>
+        <div class="col-md-2">
+            <input formControlName="orderNo" id="orderNo" type="number" class="form-control" />
+        </div>
+        <label class="col-md-2 control-label" for="fullName">Customer Name</label>
+        <div class="col-md-4">
+            <input formControlName="fullName" id="fullName" type="text" class="form-control" />
+        </div>
+        <label class="col-md-6 control-label" for="orderDate">Order Date</label>
+        <div class="col-md-4">
+            <input formControlName="orderDate" id="orderDate" type="date" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-4 col-md-offset-2">
+            <span>
+                <button class="btn btn-primary" type="button" (click)="add()">
+                    Add Item
+                </button>
+            </span>
+        </div>
+    </div>
+    <div formArrayName="items" *ngFor="let item of items.controls; let i=index" class ="container">
+        <div [formGroupName]= "i" >
+            <div class="form-group" >
+
+              <div>
+                <label class="col-md-2 control-label">Item</label>
+                <label class="col-md-2 control-label">Qty</label>
+                <label class="col-md-2 control-label">Cost</label>
+                <label class="col-md-2 control-label">Total</label>
+              </div>
+              <br><br>
+
+              <div>
+                <div class="col-md-2">
+                    <input type="text" formControlName="Item" class="form-control" id="{{'Item' + i}}" placeholder="Item Name" />
+                  </div>
+                  <div class="col-md-2">
+                    <input type="number" formControlName="Qty" class="form-control" id="{{'Qty' + i}}" placeholder="Qty" />
+                  </div >
+                  <div class="col-md-2">
+                    <input type="number" formControlName="Cost" class="form-control" id="{{'cost' + i}}" placeholder="cost" />
+                  </div>
+                </div>
+                  <div class="col-md-2">
+                    <input class="form-control right_placeholder"  disabled value="{{ item.value.Total |currency  }}" />
+                </div>
+                <button class= "btn btn-primary" (click)= "remove(item)">Delete</button>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group " >
+        <div class= "container">
+                <div class= " col-md-2" >
+                    <button class="btn btn-primary" type="submit" id="grandTotal">Save</button>
+                </div>
+                <div class= "col-md-4" >
+                    <label for="total">Grand Total: </label>
+                    <input  class="form-control right_placeholder"  disabled value="{{ form.value.grandTotal | currency  }}" />
+                </div>
+        </div>
+     </div>
+</form>

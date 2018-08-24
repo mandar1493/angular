@@ -1,0 +1,10 @@
+<p>
+  Child Component
+</p>
+
+
+<p>Star Rating:</p>
+<span >
+  <a *ngFor='let item of stars; let i = index' (click) = 'setStar(i)'>
+  <i [ngClass]= "item ? 'far fa-star' : 'fas fa-star'"></i></a>
+</span>
